@@ -1,25 +1,42 @@
 import React, { useState } from 'react'
-import '../assets/styles/login.scss'
-import { doGPostLogin } from '../services'
-export default function Login() {
-    const [email, setemail] = useState([]);
-    const [pass, setpass] = useState([]);
+import 'assets/styles/login.scss'
+import { doGPostLogin } from 'services'
+import { useLocation } from 'wouter';
+
+export default function Login(props) {
+    const [state, setState] = useState({
+        email: '',
+        password: ''
+    });
+    const [path, pushLocation] = useLocation()
+
+
+    function handleChange(e) {
+        const { id, value } = e.target
+        setState(prevState => ({
+            ...prevState,
+            [id]: value
+        }))
+    }
 
     function handleSubmit(event) {
-        console.log("Submit");
         event.preventDefault();
-        let user = {}
+        const userLogin = { email: state.email, password: state.password }
+        console.log(userLogin);
+        let user
         try {
-            user = doGPostLogin({ email, pass })
+            user = doGPostLogin(userLogin)
+            alert(JSON.stringify(user))
+            pushLocation('/home')
         } catch (error) {
             alert(error)
         }
-        alert(JSON.stringify(user))
+
 
     }
 
     function validateForm() {
-        return email.length > 0 && pass.length > 0;
+        return state.email.length > 0 && state.password.length > 0;
     }
     return (
         <div className="container">
@@ -35,8 +52,8 @@ export default function Login() {
                         <p className="message">Already registered? <a href='#'>Sign In</a></p>
                     </form> */}
                     <form onSubmit={handleSubmit} className="login-form">
-                        <input type="email" placeholder="username or email" value={email} onChange={(e) => setemail(e.target.value)} />
-                        <input type="password" placeholder="password" value={pass} onChange={(e) => setpass(e.target.value)} />
+                        <input type="email" id="email" placeholder="username or email" value={state.email} onChange={handleChange} />
+                        <input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
                         <button disabled={!validateForm()}>login</button>
                         <p className="message">Not registered? <a href='#'>Create an account</a></p>
                     </form>

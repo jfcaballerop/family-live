@@ -1,7 +1,7 @@
 import React from 'react';
 import { Route, Switch } from 'wouter';
-import Home from './home';
-import Login from './login';
+import Home from 'pages/Home';
+import Login from 'pages/Login';
 const Pages = () => {
     return (
         <Switch>

@@ -1,7 +1,7 @@
-import './App.scss';
+import 'App.scss';
 import { Component } from 'react';
 import { Redirect } from 'wouter';
-import Pages from './pages';
+import Pages from 'pages';
 
 class App extends Component {
   render() {
@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Pages />
         {
-          !localStorage.getItem('token') ? <Redirect from='/' to='/login' /> : ''
+          !localStorage.getItem('token') ? <Redirect from='/' to='/Login' /> : ''
         }
       </div>
     );
