@@ -1,4 +1,5 @@
 @import "assets/styles/colors";
+@import "assets/styles/icons";
 
 * {
     margin: 0;
@@ -77,6 +78,14 @@ input[type="checkbox"] {
     display: none;
     font-size: 24px;
     user-select: none;
+}
+
+/* ICONS*/
+.icon {
+    max-width: $icon-max-width;
+}
+.icon path {
+    fill: $backgroung-color;
 }
 
 /* APPLYING MEDIA QUERIES */

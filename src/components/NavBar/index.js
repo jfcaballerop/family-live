@@ -1,3 +1,4 @@
+import LogOut from 'components/LogOut'
 import React from 'react'
 import './NavBar.scss'
 
@@ -27,7 +28,7 @@ export default function NavBar() {
                         </ul>
                     </li>
                     <li><a href="/">Pricing</a></li>
-                    <li><a href="/">Contact</a></li>
+                    <li><LogOut></LogOut></li>
                 </div>
             </ul>
         </nav>
