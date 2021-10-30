@@ -9,7 +9,7 @@ class App extends Component {
       <div>
         <Pages />
         {
-          !localStorage.getItem('token') ? <Redirect from='/' to='/Login' /> : ''
+          !localStorage.getItem('token') ? <Redirect from='/' to='/Login' /> : <Redirect from='/' to='/Home' />
         }
       </div>
     );

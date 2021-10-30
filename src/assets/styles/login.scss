@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Roboto:300);
+@import "colors";
 
 .container {
     display: flex;
@@ -27,11 +28,11 @@
     position: relative;
     z-index: 1;
     // background: #ffffff;
-    background: #f0990b; /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #f0990b, #f0992b);
-    background: -moz-linear-gradient(right, #f0990b, #f0992b);
-    background: -o-linear-gradient(right, #f0990b, #f0992b);
-    background: linear-gradient(to left, #f0990b, #f0992b);
+    background: $primary-color; /* fallback for old browsers */
+    background: -webkit-linear-gradient(right, $primary-color, $primary-color-light);
+    background: -moz-linear-gradient(right, $primary-color, $primary-color-light);
+    background: -o-linear-gradient(right, $primary-color, $primary-color-light);
+    background: linear-gradient(to left, $primary-color, $primary-color-light);
     max-width: 360px;
     margin: 0 auto 100px;
     padding: 45px;
@@ -42,7 +43,7 @@
 .form input {
     font-family: "Roboto", sans-serif;
     outline: 0;
-    background: #f2f2f2;
+    background: $backgroung-color;
     width: 100%;
     border: 0;
     margin: 0 0 15px;
@@ -55,14 +56,14 @@
     font-weight: bold;
     border-radius: 5px;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
-    background: #006805;
+    background: $complementary-color;
     text-transform: uppercase;
     outline: 0;
     // background: #4caf50;
     width: 100%;
     border: 0;
     padding: 15px;
-    color: #ffffff;
+    color: $text-primary-color;
     font-size: 14px;
     -webkit-transition: all 0.3 ease;
     transition: all 0.3 ease;
@@ -71,7 +72,7 @@
 .form button:hover,
 .form button:active,
 .form button:focus {
-    background: #43a047;
+    background: $complementary-color-dark;
 }
 .form .message {
     margin: 15px 0 0;
@@ -79,7 +80,7 @@
     font-size: 12px;
 }
 .form .message a {
-    color: #006805;
+    color: $complementary-color;
     text-decoration: none;
     font-weight: bold;
 }
@@ -107,21 +108,21 @@
     padding: 0;
     font-size: 36px;
     font-weight: 300;
-    color: #1a1a1a;
+    color: $text-primary-color-dark;
 }
 .container .info span {
-    color: #4d4d4d;
+    color: $text-primary-color-dark-light;
     font-size: 12px;
 }
 .container .info span a {
-    color: #000000;
+    color: $text-primary-color-dark;
     text-decoration: none;
 }
 .container .info span .fa {
-    color: #ef3b3a;
+    color: $text-primary-color-error;
 }
 body {
-    background: #fff; /* fallback for old browsers */
+    background: $backgroung-color-light; /* fallback for old browsers */
 
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
