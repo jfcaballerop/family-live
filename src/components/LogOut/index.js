@@ -1,12 +1,23 @@
 import React from 'react'
-import LogOutIcon from 'assets/icons/LogOut_32x32.svg';
+import { AiOutlineLogout } from "react-icons/ai";
+import './LogOut.scss'
+import { deleteLocalStorage } from 'services'
+import { useLocation } from 'wouter';
+
 
 
 export default function LogOut() {
+    const [path, pushLocation] = useLocation()
+
+    function handleClick(e) {
+        deleteLocalStorage('token')
+        pushLocation('/Login')
+
+    }
+
     return (
-        <>
-            <img className="icon" src={LogOutIcon} alt="LogOut" />
-            LogOut
-        </>
+        <div>
+            <AiOutlineLogout className="icon" onClick={handleClick} />
+        </div>
     )
 }

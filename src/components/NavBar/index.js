@@ -28,7 +28,7 @@ export default function NavBar() {
                         </ul>
                     </li>
                     <li><a href="/">Pricing</a></li>
-                    <li><LogOut></LogOut></li>
+                    <li className="nohover" ><LogOut></LogOut></li>
                 </div>
             </ul>
         </nav>

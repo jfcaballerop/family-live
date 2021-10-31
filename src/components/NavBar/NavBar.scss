@@ -34,7 +34,7 @@ li {
     font-size: 18px;
 }
 
-.menu li:hover {
+.menu li:not(.nohover):hover {
     background-color: $complementary-color-light;
     border-radius: 5px;
     transition: 0.3s ease;
@@ -42,6 +42,7 @@ li {
 .menu li {
     padding: 5px 14px;
 }
+
 /* DROPDOWN MENU */
 .services {
     position: relative;
@@ -78,14 +79,6 @@ input[type="checkbox"] {
     display: none;
     font-size: 24px;
     user-select: none;
-}
-
-/* ICONS*/
-.icon {
-    max-width: $icon-max-width;
-}
-.icon path {
-    fill: $backgroung-color;
 }
 
 /* APPLYING MEDIA QUERIES */

@@ -1,0 +1,12 @@
+@import "assets/styles/colors";
+@import "assets/styles/icons";
+
+.icon {
+    color: $backgroung-color-light;
+    font-size: $icon-font-size;
+    cursor: pointer;
+}
+
+.icon:hover {
+    color: $backgroung-color;
+}
