@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import 'assets/styles/login.scss'
 import { doGPostLogin } from 'services'
 import { useLocation } from 'wouter';
+import UserContext from 'context/UserContext'
 
 export default function Login(props) {
     const [state, setState] = useState({
@@ -9,7 +10,7 @@ export default function Login(props) {
         password: ''
     });
     const [path, pushLocation] = useLocation()
-
+    const { user, setuser } = useContext(UserContext)
 
     function handleChange(e) {
         const { id, value } = e.target
@@ -27,6 +28,8 @@ export default function Login(props) {
         try {
             user = doGPostLogin(userLogin)
             console.log(user);
+            // Añado user al Contexto
+            setuser(user)
             // alert(JSON.stringify(user))
             pushLocation('/home')
         } catch (error) {
