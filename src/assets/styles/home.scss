@@ -3,4 +3,30 @@
 
 .Principal {
     color: $text-primary-color-dark;
+    display: flex;
+    min-width: 100vw;
+}
+.leftSide {
+    min-width: 15%;
+}
+.rightSide {
+    min-width: 15%;
+}
+.centerContent {
+    min-width: 70%;
+}
+
+/* APPLYING MEDIA QUERIES */
+@media (max-width: 768px) {
+    .leftSide {
+        max-width: 5%;
+        min-width: 5%;
+    }
+    .rightSide {
+        max-width: 5%;
+        min-width: 5%;
+    }
+    .centerContent {
+        min-width: 90%;
+    }
 }

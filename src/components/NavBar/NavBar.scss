@@ -63,7 +63,7 @@ li {
     width: 8em;
     text-align: center;
 }
-.dropdown li:hover {
+.dropdown li:not(.nohover):hover {
     background-color: $complementary-color-light2;
 }
 .services:hover .dropdown {
