@@ -26,6 +26,7 @@ export default function Login(props) {
         let user
         try {
             user = doGPostLogin(userLogin)
+            console.log(user);
             // alert(JSON.stringify(user))
             pushLocation('/home')
         } catch (error) {
