@@ -2,6 +2,7 @@ import 'App.scss';
 import { Component } from 'react';
 import { Redirect } from 'wouter';
 import Pages from 'pages';
+import { isLogged } from 'services';
 
 class App extends Component {
   render() {
@@ -9,9 +10,9 @@ class App extends Component {
       <div>
         <Pages />
         {
-          !localStorage.getItem('token') ?
-            <Redirect from='/' to='/Login' /> :
-            <Redirect from='/' to='/Home' />
+          isLogged() ?
+            <Redirect from='/' to='/Home' /> :
+            <Redirect from='/' to='/Login' />
         }
       </div>
     );

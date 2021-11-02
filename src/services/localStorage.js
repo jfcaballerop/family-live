@@ -7,3 +7,9 @@ export function deleteLocalStorage(key) {
     } else return false
 
 }
+export function getLocalStorage(key) {
+    const value = localStorage.getItem(key)
+    return value
+
+}
+

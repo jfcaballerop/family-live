@@ -7,7 +7,6 @@ const Pages = () => {
     return (
         <Switch>
             <UserContextprovider>
-
                 <Route path="/home" component={Home} />
                 <Route path="/login" component={Login} />
             </UserContextprovider>

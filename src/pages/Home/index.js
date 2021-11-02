@@ -1,27 +1,39 @@
 import 'assets/styles/home.scss'
-import React, { useContext } from 'react';
+import React from 'react';
 import NavBar from 'components/NavBar'
-import UserContext from 'context/UserContext';
+import Wellcome from './HomePages/Wellcome';
+import News from './HomePages/News';
+import { isLogged } from 'services'
+import { Redirect } from 'wouter';
+import { useLocation } from 'wouter';
 
 
 
 const Home = () => {
-    const { user, setuser } = useContext(UserContext)
-    return (
-        <div className='Principal'>
+    const [location, setLocation] = useLocation();
 
-            <div className='leftSide'>
+    if (isLogged()) {
+        return (
 
-            </div>
-            <div className='centerContent'>
-                <NavBar></NavBar>
-                <h1>Family Live App</h1>
-                <p>Wellcome {user.user}</p>
-            </div>
-            <div className='rightSide'>
+            <div className='Principal'>
 
+                <div className='leftSide'>
+
+                </div>
+                <div className='centerContent'>
+                    <NavBar></NavBar>
+                    <Wellcome></Wellcome>
+                    <News></News>
+
+                </div>
+                <div className='rightSide'>
+
+                </div>
             </div>
-        </div>
-    );
+        )
+    } else {
+        // setLocation("/Login")
+        return <Redirect to="/Login"></Redirect>
+    }
 };
 export default Home;

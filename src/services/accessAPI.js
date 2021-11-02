@@ -5,6 +5,7 @@ function doGPostLogin(props) {
 
     if (email === DEMO.user && password === DEMO.password) {
         localStorage.setItem('token', TOKEN_DEMO)
+        localStorage.setItem('userInfo', DEMO.user)
         return DEMO
     } else {
         throw new Error('Login Failed!')
