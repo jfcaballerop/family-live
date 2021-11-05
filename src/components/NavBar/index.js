@@ -15,19 +15,19 @@ export default function NavBar() {
                 {/* <!-- NAVIGATION MENUS --> */}
                 <div className="menu">
                     <li><a href="/">Home</a></li>
-                    <li><a href="/">About</a></li>
+                    <li><a href="/">Notas</a></li>
+                    <li><a href="/">Calendario</a></li>
                     <li className="services">
-                        Services
-                        {/* <!-- DROPDOWN MENU --> */}
+                        Economia
                         <ul className="dropdown">
-                            <li><a href="/">Dropdown 1 </a></li>
-                            <li><a href="/">Dropdown 2</a></li>
-                            <li><a href="/">Dropdown 2</a></li>
-                            <li><a href="/">Dropdown 3</a></li>
-                            <li><a href="/">Dropdown 4</a></li>
+                            <li><a href="/">Gastos</a></li>
+                            <li><a href="/">Ingresos</a></li>
+                            <li><a href="/">Facturas</a></li>
+                            <li><a href="/">Presupuestos</a></li>
+                            <li><a href="/">Ahorro</a></li>
                         </ul>
                     </li>
-                    <li><a href="/">Pricing</a></li>
+                    {/* <li><a href="/">Pricing</a></li> */}
                     <li className="nohover" ><LogOut></LogOut></li>
                 </div>
             </ul>

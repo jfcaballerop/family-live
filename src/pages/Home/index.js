@@ -6,6 +6,7 @@ import News from './HomePages/News';
 import { isLogged } from 'services'
 import { Redirect } from 'wouter';
 import { useLocation } from 'wouter';
+import Calendar from 'components/Calendar';
 
 
 
@@ -24,7 +25,7 @@ const Home = () => {
                     <NavBar></NavBar>
                     <Wellcome></Wellcome>
                     <News></News>
-
+                    <Calendar></Calendar>
                 </div>
                 <div className='rightSide'>
 
