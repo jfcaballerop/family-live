@@ -43,7 +43,7 @@ export default function Login(props) {
         return state.email.length > 0 && state.password.length > 0;
     }
     return (
-        <div className="container">
+        <div className="container-login">
             <div className="login-logo">
             </div>
             <div className="login-page">
