@@ -8,7 +8,7 @@ export default function Wellcome() {
     return (
         <div>
             <h1>
-                Wellcome {user}
+                Hola {user} !
             </h1>
         </div>
     )
