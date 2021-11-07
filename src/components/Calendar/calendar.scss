@@ -13,6 +13,7 @@ $cell-width: 14.2857%;
     padding: 20px;
     background: #fff;
     list-style-type: none;
+    font-weight: bolder;
 
     .week {
         display: flex;
@@ -20,11 +21,13 @@ $cell-width: 14.2857%;
         flex-wrap: wrap;
 
         &__header {
+            font-weight: bold;
             order: 1;
             background: #fff;
             border-right: 1px solid $border;
             text-align: center;
-            padding: 20px;
+            padding-top: 20px;
+            padding-bottom: 20px;
             text-transform: uppercase;
             color: #333;
             letter-spacing: 2px;
@@ -85,9 +88,10 @@ $cell-width: 14.2857%;
 
         &__number {
             position: absolute;
-            right: 20px;
-            top: 20px;
+            right: 5px;
+            top: 5px;
             margin: 0;
+            font-weight: normal;
 
             @media (max-width: 767px) {
                 right: 5px;
