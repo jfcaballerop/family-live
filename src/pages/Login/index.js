@@ -6,7 +6,7 @@ import UserContext from 'context/UserContext'
 
 export default function Login(props) {
     const [state, setState] = useState({
-        email: '',
+        username: '',
         password: ''
     });
     const [path, pushLocation] = useLocation()
@@ -20,13 +20,13 @@ export default function Login(props) {
         }))
     }
 
-    function handleSubmit(event) {
+    async function handleSubmit(event) {
         event.preventDefault();
-        const userLogin = { email: state.email, password: state.password }
+        const userLogin = { username: state.username, password: state.password }
         console.log(userLogin);
         let user
         try {
-            user = doGPostLogin(userLogin)
+            user = await doGPostLogin(userLogin)
             console.log(user);
             // Añado user al Contexto
             setuser(user)
@@ -40,7 +40,7 @@ export default function Login(props) {
     }
 
     function validateForm() {
-        return state.email.length > 0 && state.password.length > 0;
+        return state.username.length > 0 && state.password.length > 0;
     }
     return (
         <div className="container-login">
@@ -56,7 +56,7 @@ export default function Login(props) {
                         <p className="message">Already registered? <a href='#'>Sign In</a></p>
                     </form> */}
                     <form onSubmit={handleSubmit} className="login-form">
-                        <input type="email" id="email" placeholder="username or email" value={state.email} onChange={handleChange} />
+                        <input type="text" id="username" placeholder="username or email" value={state.username} onChange={handleChange} />
                         <input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
                         <button disabled={!validateForm()}>login</button>
                         <p className="message">Not registered? <a href='#'>Create an account</a></p>
