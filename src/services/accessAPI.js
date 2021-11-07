@@ -2,6 +2,7 @@ import { TOKEN_DEMO } from 'configuration'
 import { USER_INFO_KEY } from 'configuration';
 import { db } from 'configuration/firebaseConfig'
 import { doc, collection, getDocs, getDoc } from 'firebase/firestore';
+import { compareHash, encrypt } from 'utils/crypt';
 
 
 const DEMO = { user: 'demo@demo.com', password: 'demo' };
@@ -18,11 +19,13 @@ async function doGPostLogin(props) {
 
 
     // console.log(usersList);
-    if (docSnap.exists()) {
+    console.log(docSnap.data().password);
+    console.log(encrypt(password));
+    if (docSnap.exists() && compareHash(password, docSnap.data().password)) {
         console.log("Document data:", docSnap.data());
         localStorage.setItem('token', TOKEN_DEMO)
-        localStorage.setItem(USER_INFO_KEY, DEMO.user)
-        return DEMO
+        localStorage.setItem(USER_INFO_KEY, docSnap.data())
+        return docSnap.data()
     } else {
         // doc.data() will be undefined in this case
         console.log("No such document!");

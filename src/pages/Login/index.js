@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import 'assets/styles/login.scss'
 import { doGPostLogin } from 'services'
-import { useLocation } from 'wouter';
+import { Link, useLocation } from 'wouter';
 import UserContext from 'context/UserContext'
 
 export default function Login(props) {
@@ -59,7 +59,7 @@ export default function Login(props) {
                         <input type="text" id="username" placeholder="username or email" value={state.username} onChange={handleChange} />
                         <input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
                         <button disabled={!validateForm()}>login</button>
-                        <p className="message">Not registered? <a href='#'>Create an account</a></p>
+                        <p className="message">Not registered? <Link to="/register">Create an account</Link></p>
                     </form>
                 </div>
             </div>
