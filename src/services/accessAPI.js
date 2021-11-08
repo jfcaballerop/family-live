@@ -24,7 +24,7 @@ async function doGPostLogin(props) {
     if (docSnap.exists() && compareHash(password, docSnap.data().password)) {
         console.log("Document data:", docSnap.data());
         localStorage.setItem('token', TOKEN_DEMO)
-        localStorage.setItem(USER_INFO_KEY, docSnap.data())
+        localStorage.setItem(USER_INFO_KEY, docSnap.data().username)
         return docSnap.data()
     } else {
         // doc.data() will be undefined in this case

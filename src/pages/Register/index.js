@@ -1,65 +1,11 @@
-import UserContext from 'context/UserContext';
-import React, { useContext, useState } from 'react'
-import { doFBCreateUser } from 'services';
-import { Link, useLocation } from 'wouter'
+import useForm from 'hooks/useForm';
+import React from 'react';
+import { Link } from 'wouter';
 
 export default function Register() {
-    const [state, setState] = useState({
-        username: '',
-        password: '',
-        email: ''
-    });
-    const { user, setuser } = useContext(UserContext)
-    const [path, pushLocation] = useLocation()
+    const { state, handleChange, handleSubmit } = useForm()
 
-    function handleChange(e) {
-        const { id, value } = e.target
-        setState(prevState => ({
-            ...prevState,
-            [id]: value
-        }))
-    }
-    function validatePass(pass) {
-        var lowerCaseLetters = /[a-z]/g;
-        var upperCaseLetters = /[A-Z]/g;
-        var numbers = /[0-9]/g;
-
-
-
-        if (pass.length < 8)
-            return false
-        if (!pass.match(lowerCaseLetters))
-            return false
-        if (!pass.match(upperCaseLetters))
-            return false
-        if (!pass.match(numbers))
-            return false
-
-
-        return true;
-
-    }
-    function validateForm() {
-        return state.username.length > 0 && validatePass(state.password) && state.email.length > 0;
-    }
-    async function handleSubmit(event) {
-        event.preventDefault();
-        const userRegister = { username: state.username, password: state.password, email: state.email }
-        console.log(userRegister);
-        let user
-        try {
-            user = await doFBCreateUser(userRegister)
-            console.log(user);
-            // Añado user al Contexto
-            setuser(user)
-            // alert(JSON.stringify(user))
-            pushLocation('/login')
-        } catch (error) {
-            alert(error)
-        }
-
-
-    }
+    const { errors } = state;
     return (
         <div className="container-login">
             <div className="login-logo">
@@ -67,10 +13,13 @@ export default function Register() {
             <div className="login-page">
                 <div className="form">
                     <form onSubmit={handleSubmit} className="register-form">
-                        <input type="text" id="username" placeholder="username" value={state.username} onChange={handleChange} />
-                        <input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
-                        <input type="email" id="email" placeholder="email address" value={state.email} onChange={handleChange} />
-                        <button disabled={!validateForm()}>create</button>
+                        <input type="text" id="username" placeholder="username" value={state.username} onChange={handleChange} noValidate />
+                        {errors.username.length > 0 && <span className='error'>* {errors.username}</span>}
+                        <input type="email" id="email" placeholder="email address" value={state.email} onChange={handleChange} noValidate />
+                        {errors.email.length > 0 && <span className='error'>* {errors.email}</span>}
+                        <input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} noValidate />
+                        {errors.password.length > 0 && <span className='error'>* {errors.password}</span>}
+                        <button >create</button>
                         <p className="message">Already registered? <Link to="/Login">Login</Link></p>
                     </form>
                 </div>

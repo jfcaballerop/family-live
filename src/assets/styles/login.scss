@@ -121,6 +121,13 @@
 .container-login .info span .fa {
     color: $text-primary-color-error;
 }
+.error {
+    color: #db2269;
+    font-size: 0.9em;
+    font-weight: bold;
+    display: relative;
+}
+
 body {
     background: $backgroung-color-light; /* fallback for old browsers */
 

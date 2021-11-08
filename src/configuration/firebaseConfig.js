@@ -2,7 +2,7 @@ import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCbIgIbXkET-MHw-Kft5WNXa6vOTXBhpBQ",
+    apiKey: process.env.FIREBASE_API_KEY,
     authDomain: "family-live.firebaseapp.com",
     projectId: "family-live",
     storageBucket: "family-live.appspot.com",
