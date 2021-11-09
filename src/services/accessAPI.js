@@ -5,8 +5,6 @@ import { doc, collection, getDocs, getDoc } from 'firebase/firestore';
 import { compareHash, encrypt } from 'utils/crypt';
 
 
-const DEMO = { user: 'demo@demo.com', password: 'demo' };
-
 async function doGPostLogin(props) {
     const { username, password } = props
     // const usersCol = collection(db, 'usuarios');
@@ -23,8 +21,6 @@ async function doGPostLogin(props) {
     console.log(encrypt(password));
     if (docSnap.exists() && compareHash(password, docSnap.data().password)) {
         console.log("Document data:", docSnap.data());
-        localStorage.setItem('token', TOKEN_DEMO)
-        localStorage.setItem(USER_INFO_KEY, docSnap.data().username)
         return docSnap.data()
     } else {
         // doc.data() will be undefined in this case

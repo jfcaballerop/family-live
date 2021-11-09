@@ -5,9 +5,12 @@ import { getLocalStorage } from 'services';
 import { encrypt, salt } from 'utils/crypt';
 function isLogged() {
 
-    if (getLocalStorage('token') && getLocalStorage(USER_INFO_KEY))
+    const userInfo = getLocalStorage(USER_INFO_KEY)
+    if (userInfo) {
+        console.log(userInfo);
         return true
-    else return false
+
+    } else return false
 
 
 }

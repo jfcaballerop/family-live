@@ -1,8 +1,9 @@
 import React, { useContext, useState } from 'react'
 import 'assets/styles/login.scss'
-import { doGPostLogin } from 'services'
+import { doGPostLogin, saveLocalStorage } from 'services'
 import { Link, useLocation } from 'wouter';
 import UserContext from 'context/UserContext'
+import { USER_INFO_KEY } from 'configuration';
 
 export default function Login(props) {
     const [state, setState] = useState({
@@ -28,6 +29,8 @@ export default function Login(props) {
         try {
             user = await doGPostLogin(userLogin)
             console.log(user);
+            // save user to local storage
+            saveLocalStorage(USER_INFO_KEY, state.username)
             // Añado user al Contexto
             setuser(user)
             // alert(JSON.stringify(user))
