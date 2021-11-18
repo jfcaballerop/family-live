@@ -3,130 +3,137 @@ $cell-width: 14.2857%;
 
 /* Calendar Styles */
 .calendar-title-month {
-    text-align: center;
-    font-size: 2em;
-    margin: 0.25em;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 2em;
+	margin: 0.25em;
 }
 .calendar-month {
-    width: 90%;
-    margin: 0 auto;
-    padding: 20px;
-    background: #fff;
-    list-style-type: none;
-    font-weight: bolder;
+	width: 90%;
+	margin: 0 auto;
+	padding: 20px;
+	background: #fff;
+	list-style-type: none;
+	font-weight: bolder;
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	padding: 50px 0;
+	margin: 0;
+	background: #eee;
 
-    .week {
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
+	.week {
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
 
-        &__header {
-            font-weight: bold;
-            order: 1;
-            background: #fff;
-            border-right: 1px solid $border;
-            text-align: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            text-transform: uppercase;
-            color: #333;
-            letter-spacing: 2px;
-            width: $cell-width;
-            box-sizing: border-box;
+		&__header {
+			font-weight: bold;
+			order: 1;
+			background: #fff;
+			border-right: 1px solid $border;
+			text-align: center;
+			padding-top: 20px;
+			padding-bottom: 20px;
+			text-transform: uppercase;
+			color: #333;
+			letter-spacing: 2px;
+			width: $cell-width;
+			box-sizing: border-box;
 
-            &:nth-child(7) {
-                border-right: 0;
-            }
+			&:nth-child(7) {
+				border-right: 0;
+			}
 
-            &:first-letter {
-                font-size: 12px;
-            }
+			&:first-letter {
+				font-size: 12px;
+			}
 
-            @media (max-width: 767px) {
-                padding: 10px 0;
-                font-size: 0;
-            }
-        }
-    }
+			@media (max-width: 767px) {
+				padding: 10px 0;
+				font-size: 0;
+			}
+		}
+	}
 
-    .days {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        width: 100%;
-    }
+	.days {
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		width: 100%;
+	}
 
-    .day {
-        position: relative;
-        order: 1;
-        width: $cell-width;
-        background: #fff;
-        border-right: 1px solid $border;
-        border-top: 1px solid $border;
-        transition: 0.5s;
-        box-sizing: border-box;
+	.day {
+		position: relative;
+		order: 1;
+		width: $cell-width;
+		background: #fff;
+		border-right: 1px solid $border;
+		border-top: 1px solid $border;
+		transition: 0.5s;
+		box-sizing: border-box;
 
-        &:nth-child(7n + 7) {
-            border-left: none;
-        }
+		&:nth-child(7n + 7) {
+			border-left: none;
+		}
 
-        &:nth-child(7n + 7) {
-            border-right: none;
-        }
+		&:nth-child(7n + 7) {
+			border-right: none;
+		}
 
-        &:after {
-            /* Create responsive square div */
-            content: "";
-            display: block;
-            padding-bottom: 100%;
-        }
+		&:after {
+			/* Create responsive square div */
+			content: "";
+			display: block;
+			padding-bottom: 100%;
+		}
 
-        &:hover {
-            background: #eee;
-        }
+		&:hover {
+			background: #eee;
+		}
 
-        &__number {
-            position: absolute;
-            right: 5px;
-            top: 5px;
-            margin: 0;
-            font-weight: normal;
+		&__number {
+			position: absolute;
+			right: 5px;
+			top: 5px;
+			margin: 0;
+			font-weight: normal;
 
-            @media (max-width: 767px) {
-                right: 5px;
-                top: 5px;
-            }
-        }
+			@media (max-width: 767px) {
+				right: 5px;
+				top: 5px;
+			}
+		}
 
-        &--empty {
-            background: #f8f8f8;
+		&--empty {
+			background: #f8f8f8;
 
-            &:hover {
-                cursor: default;
-                background: #f8f8f8;
-            }
-        }
-    }
+			&:hover {
+				cursor: default;
+				background: #f8f8f8;
+			}
+		}
+	}
 
-    a {
-        display: block;
-        width: 100%;
-        height: 100%;
-    }
+	a {
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
 }
 
 /* Other Styles - not required */
 
-body {
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    padding: 50px 0;
-    margin: 0;
-    background: #eee;
-}
+// body {
+//     font-family: Arial, sans-serif;
+//     font-size: 12px;
+//     padding: 50px 0;
+//     margin: 0;
+//     background: #eee;
+// }
 
-a {
-    color: #333;
-    text-decoration: none;
-}
+// a {
+//     color: #333;
+//     text-decoration: none;
+// }
