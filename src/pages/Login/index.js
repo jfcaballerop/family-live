@@ -1,9 +1,9 @@
 import React, { useContext, useState } from 'react'
 import 'assets/styles/login.scss'
-import { doGPostLogin, saveLocalStorage } from 'services'
+import { doGPostLogin, isLogged, saveLocalStorage } from 'services'
 import UserContext from 'context/UserContext'
 import { USER_INFO_KEY } from 'configuration';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, Redirect } from 'react-router-dom';
 
 export default function Login(props) {
 	const [state, setState] = useState({
@@ -46,26 +46,28 @@ export default function Login(props) {
 		return state.username.length > 0 && state.password.length > 0;
 	}
 	return (
-		<div className="container-login">
-			<div className="login-logo">
-			</div>
-			<div className="login-page">
-				<div className="form">
-					{/* <form className="register-form">
+		isLogged() ?
+			<Redirect to='/home' /> :
+			<div className="container-login">
+				<div className="login-logo">
+				</div>
+				<div className="login-page">
+					<div className="form">
+						{/* <form className="register-form">
                         <input type="text" placeholder="name" />
                         <input type="password" placeholder="password" />
                         <input type="text" placeholder="email address" />
                         <button>create</button>
                         <p className="message">Already registered? <a href='#'>Sign In</a></p>
                     </form> */}
-					<form onSubmit={handleSubmit} className="login-form">
-						<input type="text" id="username" placeholder="username or email" value={state.username} onChange={handleChange} />
-						<input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
-						<button disabled={!validateForm()}>login</button>
-						<p className="message">Not registered? <Link to="/register">Create an account</Link></p>
-					</form>
+						<form onSubmit={handleSubmit} className="login-form">
+							<input type="text" id="username" placeholder="username or email" value={state.username} onChange={handleChange} />
+							<input type="password" id="password" placeholder="password" value={state.password} onChange={handleChange} />
+							<button disabled={!validateForm()}>login</button>
+							<p className="message">Not registered? <Link to="/register">Create an account</Link></p>
+						</form>
+					</div>
 				</div>
 			</div>
-		</div>
 	)
 }

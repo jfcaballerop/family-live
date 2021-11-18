@@ -1,11 +1,10 @@
-import 'assets/styles/home.scss'
-import React from 'react';
-import NavBar from 'components/NavBar'
-import Wellcome from './HomePages/Wellcome';
-import News from './HomePages/News';
-import { isLogged } from 'services'
+import 'assets/styles/home.scss';
 import Calendar from 'components/Calendar';
+import React from 'react';
 import { Redirect } from 'react-router-dom';
+import { isLogged } from 'services';
+import News from './HomePages/News';
+import Wellcome from './HomePages/Wellcome';
 
 
 
@@ -19,7 +18,6 @@ const Home = () => {
 
 				</div>
 				<div className='centerContent'>
-					<NavBar></NavBar>
 					<Wellcome></Wellcome>
 					<News></News>
 					<Calendar></Calendar>

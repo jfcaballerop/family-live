@@ -3,20 +3,20 @@ import Register from 'pages/Register'
 import React from 'react'
 import {
 	BrowserRouter as Router,
-	Switch,
-	Route
+	Switch
 } from 'react-router-dom'
 import AppRoutes from './AppRoutes'
+import PrivateRoutes from './PrivateRoutes'
+import PublicRoutes from './PublicRoutes'
 
 const LoginRoutes = () => {
+
 	return (
 		<Router>
-			<AppRoutes></AppRoutes>
 			<Switch>
-				<Route exact path="/login" component={Login} />
-				<Route exact path="/register" component={Register} />
-
-				<Route exact path="/" component={Login} />
+				<PublicRoutes path="/login" component={Login} />
+				<PublicRoutes path="/register" component={Register} />
+				<PrivateRoutes path="/" component={AppRoutes} />
 			</Switch>
 		</Router>
 	)
