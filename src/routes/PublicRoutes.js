@@ -4,7 +4,7 @@ import { isLogged } from 'services'
 
 const PublicRoutes = ({ component: Component, ...rest }) => {
 	return (
-		<Route {...rest} component={(props) => !isLogged() ? <Component {...props} /> : <Redirect to="/" />} />
+		<Route {...rest} component={(props) => !isLogged('PublicRoutes') ? <Component {...props} /> : <Redirect to="/" />} />
 	)
 }
 

@@ -1,0 +1,58 @@
+/* CSS */
+@import "assets/styles/colors";
+
+.btn {
+	background: $complementary-color;
+	border: 1px solid $complementary-color;
+	border-radius: 6px;
+	box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+	box-sizing: border-box;
+	color: #ffffff;
+	cursor: pointer;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	font-family: nunito, roboto, proxima-nova, "proxima nova", sans-serif;
+	font-size: 16px;
+	font-weight: 800;
+	line-height: 16px;
+	min-height: 40px;
+	outline: 0;
+	padding: 12px 14px;
+	margin: 0.25em 0 0.25em;
+	text-align: center;
+	text-rendering: geometricprecision;
+	text-transform: none;
+	user-select: none;
+	-webkit-user-select: none;
+	touch-action: manipulation;
+	vertical-align: middle;
+	&:hover,
+	&:active {
+		background-color: initial;
+		background-position: 0 0;
+		color: $complementary-color;
+	}
+
+	&:active {
+		opacity: 0.5;
+	}
+	&-secondary-a {
+		background: $secondary-a-color;
+		border: 1px solid $secondary-a-color;
+		color: #3d3d3d;
+		&:hover,
+		&:active {
+			color: #3d3d3d;
+		}
+	}
+	&-secondary-b {
+		background: $secondary-b-color;
+		border: 1px solid $secondary-b-color;
+		color: #fff;
+		&:hover,
+		&:active {
+			color: #3d3d3d;
+		}
+	}
+}

@@ -1,0 +1,93 @@
+/* The Modal (background) */
+.modal {
+	position: fixed; /* Stay in place */
+	z-index: 1; /* Sit on top */
+	left: 0;
+	top: 0;
+	width: 100%; /* Full width */
+	height: 100%; /* Full height */
+	overflow: auto; /* Enable scroll if needed */
+	background-color: rgb(0, 0, 0); /* Fallback color */
+	background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+}
+
+/* Modal Header */
+.modal-header {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+/* Modal Body */
+.modal-body {
+	padding: 2px 16px;
+}
+
+/* Modal Footer */
+.modal-footer {
+	padding: 2px 16px;
+	background-color: #5cb85c;
+	color: white;
+}
+
+/* Modal Content */
+.modal-content {
+	position: relative;
+	background-color: #fefefe;
+	margin: auto;
+	padding: 0;
+	border: 0 solid #888;
+	border-radius: 17px;
+	width: fit-content;
+	min-width: 300px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	animation-name: animatetop;
+	animation-duration: 0.4s;
+	// transform: translate(-50%, -50%);
+	height: auto;
+	top: 35%;
+	// left: 50%;
+	// transform: translate(-50%, -50%);
+	& > p {
+		padding: 1em;
+	}
+}
+.modal-header {
+	border-radius: 10px 10px 0 0;
+}
+.modal-footer {
+	border-radius: 0 0 10px 10px;
+}
+/* Add Animation */
+@keyframes animatetop {
+	from {
+		top: -300px;
+		opacity: 0;
+	}
+	to {
+		top: 35%;
+		opacity: 1;
+	}
+}
+
+/* The Close Button */
+.close {
+	color: #131313;
+	float: right;
+	font-size: 28px;
+	font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+.display-block {
+	display: block;
+}
+
+.display-none {
+	display: none;
+}

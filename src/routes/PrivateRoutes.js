@@ -4,7 +4,7 @@ import { isLogged } from 'services'
 
 const PrivateRoutes = ({ component: Component, ...rest }) => {
 	return (
-		<Route {...rest} component={(props) => isLogged() ? <Component {...props} /> : <Redirect to="/login" />} />
+		<Route {...rest} component={(props) => isLogged('privateRoutes') ? <Component {...props} /> : <Redirect to="/login" />} />
 	)
 }
 
