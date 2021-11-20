@@ -1,3 +1,5 @@
+@import "assets/styles/colors";
+
 /* The Modal (background) */
 .modal {
 	position: fixed; /* Stay in place */
@@ -14,7 +16,7 @@
 /* Modal Header */
 .modal-header {
 	padding: 2px 16px;
-	background-color: #5cb85c;
+	background-color: $primary-color;
 	color: white;
 }
 
@@ -26,7 +28,7 @@
 /* Modal Footer */
 .modal-footer {
 	padding: 2px 16px;
-	background-color: #5cb85c;
+	background-color: $primary-color;
 	color: white;
 }
 
@@ -39,7 +41,7 @@
 	border: 0 solid #888;
 	border-radius: 17px;
 	width: fit-content;
-	min-width: 300px;
+	min-width: 400px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 	animation-name: animatetop;
 	animation-duration: 0.4s;
@@ -54,9 +56,11 @@
 }
 .modal-header {
 	border-radius: 10px 10px 0 0;
+	padding: 1em;
 }
 .modal-footer {
 	border-radius: 0 0 10px 10px;
+	padding: 1em;
 }
 /* Add Animation */
 @keyframes animatetop {

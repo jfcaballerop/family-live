@@ -1,7 +1,7 @@
 import React from 'react'
 import './modal.scss'
 
-const Modal = ({ handleClose, show, children }) => {
+const Modal = ({ handleClose, show, children, header }) => {
 	const showHideClassName = show ? "modal display-block" : "modal display-none";
 
 	return (
@@ -9,9 +9,9 @@ const Modal = ({ handleClose, show, children }) => {
 			<div className="modal-content">
 				<div className="modal-header">
 					<span className="close" onClick={handleClose}>&times;</span>
-					<h2>Modal Header</h2>
+					<h2>{header}</h2>
 				</div>
-				<p>{children}</p>
+				{children}
 				<div className="modal-footer">
 					<button type="button" onClick={handleClose}>
 						Close
