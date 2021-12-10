@@ -1,24 +1,24 @@
 import React, { useEffect, useState } from 'react'
 
-const NoteListBody = ({ items }) => {
-	const [elements, setelements] = useState([])
+const NoteListBody = ({ items, onAddItems }) => {
+	const [elements, setElements] = useState([])
 
 
 	useEffect(() => {
 		if (items.length === 0)
-			setelements([])
+			setElements([])
 	}, [items]);
 
 	const addElements = () => {
-		setelements([...elements, { item: '' }])
+		setElements([...elements, { item: '' }])
 	}
 
 	const handleChange = (i, e) => {
 		let newElementsValues = [...elements];
 		newElementsValues[i][e.target.name] = e.target.value
-		setelements(newElementsValues)
+		setElements(newElementsValues)
+		onAddItems(elements)
 	}
-
 
 	return (
 		<>
